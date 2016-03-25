@@ -1,0 +1,15 @@
+db:
+  image: mysql:5.7
+  environment:
+    MYSQL_DATABASE: webanno
+    MYSQL_USER: webanno
+    MYSQL_PASSWORD: webanno
+    MYSQL_ROOT_PASSWORD: webanno
+webanno:
+  build: .
+  volumes:
+   - ./home:/webanno
+  ports:
+   - "8080:8080"
+  links:
+   - db
